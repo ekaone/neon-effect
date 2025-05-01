@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @apply bg-black text-white;
+  }
+}
+
+@layer components {
+  .neon-container {
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+}
+
+@layer utilities {
+  /* Neon Flicker Animation */
+  @keyframes neonFlicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      opacity: 1;
+      filter: brightness(1);
+    }
+    20%, 24%, 55% {
+      opacity: 0.8;
+      filter: brightness(0.8);
+    }
+    22%, 53% {
+      opacity: 0.9;
+      filter: brightness(0.9);
+    }
+  }
+
+  /* Neon Pulse Animation */
+  @keyframes neonPulse {
+    0%, 100% {
+      opacity: 1;
+      filter: brightness(1);
+    }
+    50% {
+      opacity: 0.85;
+      filter: brightness(0.85);
+    }
+  }
+
+  .animate-neon-flicker {
+    animation: neonFlicker 3s infinite alternate;
+  }
+
+  .animate-neon-pulse {
+    animation: neonPulse 2s infinite;
+  }
+}
